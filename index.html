@@ -1,80 +1,539 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ofivoz | Bocina inteligente para notificaciones de pagos</title>
-  <meta name="description" content="Ofivoz ofrece una solución de bocina inteligente para recibir y reproducir notificaciones de pagos para comercios.">
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#172033;background:#fff;line-height:1.6}
-    header{padding:22px 7%;border-bottom:1px solid #eee}
-    .brand{font-size:26px;font-weight:700}
-    main{max-width:1050px;margin:auto;padding:70px 7%}
-    .hero{padding:35px 0 65px}
-    h1{font-size:clamp(38px,6vw,62px);line-height:1.08;margin:0 0 22px}
-    h2{font-size:30px;margin-top:60px}
-    .lead{font-size:20px;max-width:720px;color:#526071}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
-    .card{padding:22px;border:1px solid #e5e8ed;border-radius:16px;background:#fafbfc}
-    .num{font-weight:700;font-size:14px}
-    .small{color:#667085;font-size:15px}
-    footer{border-top:1px solid #eee;padding:28px 7%;color:#667085}
-    a{color:inherit}
-    @media(max-width:700px){.steps{grid-template-columns:1fr 1fr}main{padding-top:45px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ofivoz | Bocina inteligente para notificaciones de pagos</title>
+
+    <meta name="description" content="Ofivoz es una solución de notificaciones de pagos diseñada para ayudar a los comercios a recibir confirmaciones de pago de forma rápida y clara.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            color: #17202a;
+            background: #f7f8fa;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e8eaed;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #111827;
+        }
+
+        .hero {
+            background: white;
+            padding: 95px 0 90px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            margin: 0 auto 22px;
+            font-size: 48px;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            color: #111827;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 19px;
+            color: #5f6368;
+        }
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section.white {
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 28px 22px;
+        }
+
+        .card-number {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #111827;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .data-box {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #f7f8fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 35px;
+        }
+
+        .data-box h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .data-box p {
+            color: #5f6368;
+            margin-bottom: 15px;
+        }
+
+        .data-box ul {
+            padding-left: 22px;
+            color: #5f6368;
+        }
+
+        .contact {
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .email {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            border-bottom: 1px solid #9ca3af;
+            padding-bottom: 3px;
+        }
+
+        footer {
+            background: #0b0f14;
+            color: #9ca3af;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+
+            .nav {
+                height: 62px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .data-box {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header><div class="brand">Ofivoz</div></header>
+
+<header>
+    <div class="container nav">
+        <a href="index.html" class="logo">Ofivoz</a>
+
+        <nav class="nav-links">
+            <a href="#como-funciona">Cómo funciona</a>
+            <a href="#datos">Datos y privacidad</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
 
 <main>
-  <section class="hero">
-    <h1>Bocina inteligente para notificaciones de pagos</h1>
-    <p class="lead">
-      Ofivoz es una solución para comercios que permite recibir notificaciones
-      de pagos y reproducirlas automáticamente mediante una bocina inteligente.
-    </p>
-  </section>
 
-  <section>
-    <h2>Cómo funciona</h2>
-    <div class="steps">
-      <div class="card"><div class="num">01</div><strong>Conecta tu cuenta</strong><p class="small">El comercio autoriza de forma segura la conexión necesaria para el servicio.</p></div>
-      <div class="card"><div class="num">02</div><strong>Recibimos la notificación</strong><p class="small">El sistema identifica las notificaciones de pago relevantes.</p></div>
-      <div class="card"><div class="num">03</div><strong>Procesamos la información</strong><p class="small">Se procesa únicamente la información necesaria para generar la notificación.</p></div>
-      <div class="card"><div class="num">04</div><strong>La bocina avisa</strong><p class="small">La notificación se envía al dispositivo para reproducir el aviso.</p></div>
-    </div>
-  </section>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
 
-  <section>
-    <h2>Uso de datos de Google</h2>
-    <p>
-      Cuando un comercio conecta una cuenta de Google, Ofivoz utiliza los permisos
-      autorizados únicamente para prestar la funcionalidad de notificaciones de pagos.
-      El acceso se limita a la información necesaria para identificar y procesar
-      dichas notificaciones. Ofivoz no vende la información de Google del usuario
-      ni la utiliza para publicidad personalizada.
-    </p>
-  </section>
+            <h1>
+                Bocina inteligente para notificaciones de pagos
+            </h1>
 
-  <section>
-    <h2>Privacidad y términos</h2>
-    <p>
-      Para conocer cómo tratamos la información y las condiciones de uso del servicio,
-      consulta nuestra <a href="/privacy">Política de privacidad</a> y
-      <a href="/terms">Términos de servicio</a>.
-    </p>
-  </section>
+            <p>
+                Ofivoz es una solución tecnológica diseñada para ayudar
+                a los comercios a recibir y escuchar notificaciones de
+                pagos de forma rápida, clara y sencilla.
+            </p>
 
-  <section>
-    <h2>Contacto</h2>
-    <p>
-      Para soporte o consultas sobre el servicio, escríbenos a
-      <a href="mailto:contact@ofivoz.tech">contact@ofivoz.tech</a>.
-    </p>
-  </section>
+        </div>
+    </section>
+
+
+    <!-- COMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Cómo funciona</h2>
+
+                <p>
+                    Ofivoz conecta las notificaciones de pago con un
+                    dispositivo de audio para facilitar la confirmación
+                    de las transacciones en el punto de venta.
+                </p>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="card">
+                    <div class="card-number">1</div>
+
+                    <h3>Se realiza el pago</h3>
+
+                    <p>
+                        El cliente realiza un pago utilizando el método
+                        de pago disponible en el comercio.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-number">2</div>
+
+                    <h3>Se recibe la notificación</h3>
+
+                    <p>
+                        La plataforma procesa la información necesaria
+                        para identificar la notificación correspondiente.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-number">3</div>
+
+                    <h3>Ofivoz procesa el evento</h3>
+
+                    <p>
+                        Nuestro sistema procesa la notificación y la
+                        envía al dispositivo asociado al comercio.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-number">4</div>
+
+                    <h3>Confirmación de audio</h3>
+
+                    <p>
+                        La bocina reproduce una notificación de audio
+                        para informar al comercio que se ha recibido
+                        un pago.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOLUCION -->
+    <section class="section white">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Una solución pensada para comercios</h2>
+
+                <p>
+                    Ofivoz busca facilitar la gestión de pagos en
+                    establecimientos donde una confirmación rápida
+                    puede mejorar la operación diaria.
+                </p>
+
+            </div>
+
+            <div class="data-box">
+
+                <h3>Notificaciones simples y accesibles</h3>
+
+                <p>
+                    El sistema está diseñado para proporcionar una
+                    confirmación de audio que permita al personal del
+                    comercio conocer cuándo se ha recibido una
+                    notificación de pago.
+                </p>
+
+                <p>
+                    El dispositivo puede utilizarse como una herramienta
+                    complementaria a las aplicaciones y sistemas de pago
+                    utilizados por el comercio.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GOOGLE DATA -->
+    <section class="section" id="datos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Uso de datos de Google</h2>
+
+                <p>
+                    Transparencia sobre el uso de información cuando
+                    un usuario conecta una cuenta de Google con Ofivoz.
+                </p>
+
+            </div>
+
+
+            <div class="data-box">
+
+                <h3>Información utilizada</h3>
+
+                <p>
+                    Cuando un usuario autoriza el acceso a determinados
+                    servicios de Google, Ofivoz utiliza únicamente la
+                    información necesaria para proporcionar la
+                    funcionalidad solicitada por el usuario.
+                </p>
+
+                <ul>
+                    <li>
+                        La información se utiliza para procesar
+                        notificaciones relacionadas con el servicio.
+                    </li>
+
+                    <li>
+                        No utilizamos los datos de Google para publicidad
+                        personalizada.
+                    </li>
+
+                    <li>
+                        No vendemos la información de los usuarios.
+                    </li>
+
+                    <li>
+                        El acceso puede ser revocado por el usuario
+                        desde su cuenta de Google.
+                    </li>
+
+                    <li>
+                        El tratamiento de los datos está limitado a las
+                        finalidades descritas en nuestra política de
+                        privacidad.
+                    </li>
+                </ul>
+
+                <br>
+
+                <p>
+                    Para obtener información detallada sobre el
+                    tratamiento de datos, consulte nuestra
+                    <a href="privacy.html"
+                       style="text-decoration: underline;">
+                        Política de Privacidad
+                    </a>.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section class="section contact" id="contacto">
+
+        <div class="container">
+
+            <h2>Contacto</h2>
+
+            <p>
+                Para consultas relacionadas con Ofivoz,
+                nuestro servicio o el tratamiento de datos:
+            </p>
+
+            <a class="email"
+               href="mailto:theeveresim@gmail.com">
+                theeveresim@gmail.com
+            </a>
+
+        </div>
+
+    </section>
+
 </main>
 
-<footer>© 2026 Ofivoz. Todos los derechos reservados.</footer>
+
+<footer>
+
+    <div class="container">
+
+        <div>
+            © 2026 Ofivoz. Todos los derechos reservados.
+        </div>
+
+        <div class="footer-links">
+
+            <a href="privacy.html">
+                Política de Privacidad
+            </a>
+
+            <a href="terms.html">
+                Términos de Servicio
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
 </body>
 </html>
